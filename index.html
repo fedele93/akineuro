@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Festa di Specializzazione</title>
+  <meta name="description" content="Seduta di specializzazione (9 novembre) e festa (13 novembre) a Bari: date, luoghi e informazioni per gli invitati.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ INTESTAZIONE ============ -->
+  <header class="hero">
+    <p class="eyebrow">Bari · Novembre 2026</p>
+    <h1>Festa di<br><em>Specializzazione</em></h1>
+    <p class="lead">Dopo anni di guardie, ambulatori e reparti, è arrivato il momento di festeggiare insieme.</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div><span id="cd-giorni">–</span><small>giorni</small></div>
+      <div><span id="cd-ore">–</span><small>ore</small></div>
+      <div><span id="cd-min">–</span><small>minuti</small></div>
+    </div>
+    <p class="countdown-label" id="cd-label">alla festa del 13 novembre</p>
+
+    <nav class="quicknav">
+      <a href="#festeggiati">I festeggiati</a>
+      <a href="#seduta">La seduta</a>
+      <a href="#festa">La festa</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ FESTEGGIATI ============ -->
+    <section id="festeggiati" class="section">
+      <h2>I festeggiati</h2>
+      <ul class="names">
+        <li>Chiara</li>
+        <li>Fedele</li>
+        <li>Lorenzo</li>
+        <li>Francesco</li>
+        <li>Danny</li>
+        <li>Sebastiano</li>
+        <li>Dalila</li>
+        <li>Roberto</li>
+        <li>Giorgia</li>
+      </ul>
+    </section>
+
+    <!-- ============ EVENTI ============ -->
+    <section class="section events">
+
+      <article id="seduta" class="card">
+        <p class="card-tag">Atto primo</p>
+        <h3>Seduta di specializzazione</h3>
+        <p class="date">
+          <span class="day">9</span>
+          <span class="month">novembre<br><small>lunedì</small></span>
+        </p>
+        <dl>
+          <dt>Dove</dt>
+          <dd>Aula “De Benedictis”<br>Aula Magna del Policlinico di Bari</dd>
+          <dt>Orario</dt>
+          <!-- MODIFICA QUI l'orario della seduta -->
+          <dd>da definire</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Aula+De+Benedictis+Policlinico+di+Bari">Apri in Maps</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener"
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Seduta+di+specializzazione&dates=20261109/20261110&location=Aula+De+Benedictis,+Policlinico+di+Bari">Aggiungi al calendario</a>
+        </div>
+      </article>
+
+      <article id="festa" class="card card-accent">
+        <p class="card-tag">Atto secondo</p>
+        <h3>La festa</h3>
+        <p class="date">
+          <span class="day">13</span>
+          <span class="month">novembre<br><small>venerdì</small></span>
+        </p>
+        <dl>
+          <dt>Dove</dt>
+          <dd>Giardino dei Tempi<br>Orto Botanico di Bari</dd>
+          <dt>Orario</dt>
+          <!-- MODIFICA QUI l'orario della festa -->
+          <dd>da definire</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Orto+Botanico+Bari">Apri in Maps</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener"
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Festa+di+specializzazione&dates=20261113/20261114&location=Giardino+dei+Tempi,+Orto+Botanico+di+Bari">Aggiungi al calendario</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============ INFO UTILI ============ -->
+    <section class="section info">
+      <h2>Info utili</h2>
+      <!-- Aggiungi qui dress code, conferma presenza (RSVP), parcheggi, contatti... -->
+      <p>Ulteriori dettagli (orari, dress code, conferma della presenza) saranno pubblicati qui a breve.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Vi aspettiamo! 🎓</p>
+  </footer>
+
+  <script>
+    // Conto alla rovescia verso la festa (13 novembre 2026, ora di Bari).
+    // Se cambi l'orario della festa, aggiorna anche questa data.
+    const FESTA = new Date('2026-11-13T00:00:00+01:00');
+
+    function aggiorna() {
+      const diff = FESTA - new Date();
+      if (diff <= 0) {
+        document.getElementById('countdown').hidden = true;
+        document.getElementById('cd-label').textContent = 'È il momento di festeggiare!';
+        return;
+      }
+      const min = Math.floor(diff / 60000);
+      document.getElementById('cd-giorni').textContent = Math.floor(min / 1440);
+      document.getElementById('cd-ore').textContent = Math.floor((min % 1440) / 60);
+      document.getElementById('cd-min').textContent = min % 60;
+    }
+    aggiorna();
+    setInterval(aggiorna, 30000);
+  </script>
+</body>
+</html>
